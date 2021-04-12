@@ -1,0 +1,11 @@
+*.mp4
+*.avi
+*.out
+*.docx
+*.log
+
+.venv
+config.yaml
+.vscode
+
+.DS_Store

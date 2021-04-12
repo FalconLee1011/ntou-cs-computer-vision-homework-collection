@@ -1,33 +1,58 @@
-import tensorflow
-import numpy as np
+from numpy import (
+    vstack as npVStack,
+    hstack as npHStack,
+    zeros as npZeros,
+    uint8 as npUnit8,
+)
 import cv2
-
-from hw1_filter.operations.colorCord import colorCord
 
 
 def applyFilter(videoPath):
     vid = cv2.VideoCapture(videoPath)
 
     while vid.isOpened():
-        ret, frame = vid.read()
+        ret, frameRaw = vid.read()
         if ret == True:
-            frame = cv2.resize(frame, (0, 0), None, 0.25, 0.25)
-            rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            rgb2 = colorCord().bgr2rgb(frame)
+            frame = cv2.resize(frameRaw, (0, 0), None, 0.25, 0.25)
+            # height, width, channels = frame.shape
+            _blank = npZeros(frame.shape, npUnit8)
+
+            rgb = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
             heatMap = cv2.applyColorMap(frame, cv2.COLORMAP_HOT)
 
+            # tf = cv2.resize(tf, (0, 0), None, 0.25, 0.25)
+
             font = cv2.FONT_HERSHEY_PLAIN
-            cv2.putText(frame, 'raw', (15, 25), font, 1.15, (255, 255, 255), 1, cv2.LINE_AA)
-            cv2.putText(rgb, 'BGR -> RGB', (15, 25), font, 1.15, (255, 255, 255), 1, cv2.LINE_AA)
-            cv2.putText(rgb2, 'BGR -> RGB(NUMPY)', (15, 25), font, 1.15, (255, 255, 255), 1, cv2.LINE_AA)
-            cv2.putText(heatMap, 'HEATMAP', (15, 25), font, 1.15, (255, 255, 255), 1, cv2.LINE_AA)
+            cv2.putText(
+                frame, "raw", (15, 25), font, 1.15, (255, 255, 255), 1, cv2.LINE_AA
+            )
+            cv2.putText(
+                rgb, "RGB -> BGR", (15, 25), font, 1.15, (255, 255, 255), 1, cv2.LINE_AA
+            )
+            cv2.putText(
+                _blank, "TODO", (15, 25), font, 1.15, (255, 255, 255), 1, cv2.LINE_AA
+            )
+            # cv2.putText(
+            #     tf, 'TF', (15, 25), font, 1.15, (255, 255, 255), 1, cv2.LINE_AA
+            # )
+            cv2.putText(
+                heatMap,
+                "HEATMAP",
+                (15, 25),
+                font,
+                1.15,
+                (255, 255, 255),
+                1,
+                cv2.LINE_AA,
+            )
 
-            row = np.vstack((frame, rgb))
-            row2 = np.vstack((rgb2, heatMap))
+            row = npVStack((frame, rgb))
+            row2 = npVStack((_blank, heatMap))
 
-            full = np.hstack((row, row2))
+            full = npHStack((row, row2))
 
             cv2.imshow("result", full)
+            # cv2.imshow("tf", tf)
 
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 break

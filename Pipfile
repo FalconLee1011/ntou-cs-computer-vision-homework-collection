@@ -9,6 +9,8 @@ numpy = "*"
 matplotlib = "*"
 pillow = "*"
 tensorflow = "*"
+black = "*"
+isort = "*"
 
 [dev-packages]
 
@@ -16,4 +18,5 @@ tensorflow = "*"
 python_version = "3.9"
 
 [scripts]
+format="pipenv run black ."
 hw1="pipenv run python -m hw1_filter"

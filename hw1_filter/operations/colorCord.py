@@ -1,15 +1,13 @@
 from pprint import pprint
 
+import tensorflow as tf
 
 import numpy as np
-import cv2
+from cv2 import getGaborKernel
+
 
 class colorCord:
-
     @staticmethod
-    def bgr2rgb(frame: np.ndarray) -> np.ndarray:
-        _frame = np.ndarray()
-        for ch in frame:
-            for c in ch:
-                c = [0, 0, 0]
-        return frame
+    def tfRGB2BGR(frame: np.ndarray) -> np.ndarray:
+        tfImage = tf.ragged.constant(frame)
+        return tfImage.numpy()

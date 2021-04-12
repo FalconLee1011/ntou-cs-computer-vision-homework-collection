@@ -15,6 +15,7 @@ def main():
     args = initARG()
     if args.source:
         from hw1_filter.CVfilter import applyFilter
+
         print(f"Source {args.source}")
         applyFilter(args.source)
     else:

@@ -1,7 +1,8 @@
 # NTOU CS Computer Vision Homework Collection
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&style=flat-square&logoColor=white)](https://github.com/pre-commit/pre-commit)
+![bugs](https://img.shields.io/badge/README-Great_IMO-green?&style=flat-square&logo=Read%20The%20Docs&logoColor=white)
 ![bugs](https://img.shields.io/badge/Bugs-A_lot-orange?&style=flat-square&logo=stackoverflow&logoColor=white) 
 ![bugs](https://img.shields.io/badge/CI-NOT_NOW-red?&style=flat-square&logo=CircleCI&logoColor=white)
-![bugs](https://img.shields.io/badge/README-Great_IMO-green?&style=flat-square&logo=Read%20The%20Docs&logoColor=white)
 
 ## Requirements
 - pipenv

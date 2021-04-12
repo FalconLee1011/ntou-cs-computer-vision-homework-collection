@@ -1,10 +1,8 @@
-from numpy import (
-    vstack as npVStack,
-    hstack as npHStack,
-    zeros as npZeros,
-    uint8 as npUnit8,
-)
 import cv2
+from numpy import hstack as npHStack
+from numpy import uint8 as npUnit8
+from numpy import vstack as npVStack
+from numpy import zeros as npZeros
 
 
 def applyFilter(videoPath):

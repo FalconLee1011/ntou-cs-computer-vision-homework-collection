@@ -4,7 +4,7 @@ import argparse
 def initARG():
     parser = argparse.ArgumentParser(
         prog="Computer Vision HW1 - Filters",
-        description="No further description.",
+        description="Applying 4 filters to video frames",
     )
     parser.add_argument("--source", help="Input video")
     args = parser.parse_args()
@@ -19,8 +19,4 @@ def main():
         print(f"Source {args.source}")
         applyFilter(args.source)
     else:
-        raise Exception("No video provided, please use --source <path-to-input-video>")
-
-
-if __name__ == "__main__":
-    main()
+        print("No video provided, please use --source <path-to-input-video>")

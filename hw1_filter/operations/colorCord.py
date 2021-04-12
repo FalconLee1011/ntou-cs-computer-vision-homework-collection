@@ -1,8 +1,7 @@
 from pprint import pprint
 
-import tensorflow as tf
-
 import numpy as np
+import tensorflow as tf
 from cv2 import getGaborKernel
 
 

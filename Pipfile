@@ -11,6 +11,7 @@ pillow = "*"
 tensorflow = "*"
 black = "*"
 isort = "*"
+pre-commit = "*"
 
 [dev-packages]
 

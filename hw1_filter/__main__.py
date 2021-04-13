@@ -20,3 +20,7 @@ def main():
         applyFilter(args.source)
     else:
         print("No video provided, please use --source <path-to-input-video>")
+
+
+if __name__ == "__main__":
+    main()

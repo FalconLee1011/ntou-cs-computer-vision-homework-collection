@@ -11,8 +11,12 @@ from hw1_filter.operations.passFIlter import PASSFilter
 from hw1_filter.operations.tfFilter import TFFilter
 
 
-def applyFilter(videoPath):
+def applyFilter(videoPath, output=False, outputFileName="./data/out.mp4"):
     vid = cv2.VideoCapture(videoPath)
+    out = None
+    if output:
+        fourcc = cv2.VideoWriter_fourcc(*"X264")
+        out = cv2.VideoWriter(outputFileName, fourcc, 30.0, (1920, 1080))
 
     while vid.isOpened():
         ret, frameRaw = vid.read()
@@ -22,7 +26,7 @@ def applyFilter(videoPath):
             font = cv2.FONT_HERSHEY_PLAIN
 
             # Raw, resize
-            frame = cv2.resize(frameRaw, (0, 0), None, 0.25, 0.25)
+            frame = cv2.resize(frameRaw, (0, 0), None, 0.5, 0.5)
 
             # Blank
             # cv2.putText(
@@ -42,7 +46,7 @@ def applyFilter(videoPath):
                 f"HIGHPASS frq@{HPFRQ}",
                 (15, 25),
                 font,
-                1.15,
+                2,
                 (255, 255, 255),
                 1,
                 cv2.LINE_AA,
@@ -54,7 +58,7 @@ def applyFilter(videoPath):
                 "RGB -> BGR (CV2)",
                 (15, 25),
                 font,
-                1.15,
+                2,
                 (255, 255, 255),
                 1,
                 cv2.LINE_AA,
@@ -66,7 +70,7 @@ def applyFilter(videoPath):
                 "HEATMAP (CV2)",
                 (15, 25),
                 font,
-                1.15,
+                2,
                 (255, 255, 255),
                 1,
                 cv2.LINE_AA,
@@ -78,7 +82,7 @@ def applyFilter(videoPath):
                 "TF Flip",
                 (15, 25),
                 font,
-                1.15,
+                2,
                 (255, 255, 255),
                 1,
                 cv2.LINE_AA,
@@ -90,6 +94,8 @@ def applyFilter(videoPath):
             full = npHStack((row, row2))
 
             cv2.imshow("result", full)
+            if output:
+                out.write(full)
 
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 break
@@ -98,4 +104,5 @@ def applyFilter(videoPath):
             break
 
     vid.release()
+    out.release()
     cv2.destroyAllWindows()

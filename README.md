@@ -33,7 +33,15 @@
 ### Dive into the code
   - Entry `hw1_filter/__main__.py`
   - To run it, `pipenv run hw1 --source <path-to-input-video>`
+  - Arguments
+    - `--source <path-to-input-video>`
+      - Specify the input video.
+      - **Required**
+    - `--output <path-to-output-video>`
+      - Specify the out video.
+      - Optional, if not provided, there will be no output.
 
 ### Result
-- `pipenv run hw1 --source ./data/homework_1_test_video.mp4`
+- `pipenv run hw1 --source ./data/homework_1_test_video.mp4 --output ./data/out.mp4`
   <img src="docs/hw1_result.png"/>
+- [Output result on YouTube](https://youtu.be/LP67pJAgVWo)

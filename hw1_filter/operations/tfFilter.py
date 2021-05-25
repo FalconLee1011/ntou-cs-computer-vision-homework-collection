@@ -2,7 +2,7 @@ import numpy as np
 import tensorflow as tf
 from cv2 import getGaussianKernel
 
-from hw1_filter.utils.tfUtil import TFUtil
+from utils.tfUtil import TFUtil
 
 
 class TFFilter:

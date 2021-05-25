@@ -21,3 +21,10 @@ python_version = "3.9"
 [scripts]
 format="pipenv run black ."
 hw1="pipenv run python -m hw1_filter"
+filter="pipenv run python -m hw1_filter"
+
+hw2="pipenv run python -m hw2_calibration"
+calibrate="pipenv run python -m hw2_calibration"
+
+hw3="pipenv run python -m hw3_stitching"
+stitch="pipenv run python -m hw3_stitching"

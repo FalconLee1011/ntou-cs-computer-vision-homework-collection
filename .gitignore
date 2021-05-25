@@ -3,9 +3,12 @@
 *.out
 *.docx
 *.log
+*.pdf
 
 .venv
 config.yaml
 .vscode
 
 .DS_Store
+
+data*/

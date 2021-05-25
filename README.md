@@ -45,3 +45,36 @@
 - `pipenv run hw1 --source ./data/homework_1_test_video.mp4 --output ./data/out.mp4`
   <img src="docs/hw1_result.png"/>
 - [Output result on YouTube](https://youtu.be/LP67pJAgVWo)
+
+---
+
+## HW3 - Stitching
+### Overview
+- Stitchs frames or video into one picture
+
+### Dive into the code
+  - Entry `hw3_stitching/__main__.py`
+  - To run it, `pipenv run hw3 --source <path-to-input> --type < video | frames > --reverse < true > --direction < ltr | rtl >`
+  - Arguments
+    - ` --type < video | frames >`
+      - Input type, default is video
+    - `--source <path-to-input>`
+      - Input path, if frames are specified, it must be a path to a folder contains frames.
+      - **Required**
+    - `--reverse true`
+      - Specify if the input video should be reversed.
+      - Optional.
+    - `--direction < ltr | rtl >`
+      - Specify if the input video direction.
+      - Optional, default is rtl.
+    - `--minmatch <number>`
+      - Specify minium match points, if match points is less than specified number, the frame will not be stitched.
+      - Optional, default is 500.
+
+### Result
+- `pipenv run stitch --source data/data_hw3/dataset1.mp4 --type video --direction ltr --reverse true`
+  <img src="docs/hw3-1.png"/>
+  - [Output result on YouTube](https://youtu.be/T1S0uYMyGnE)
+- `pipenv run stitch --source data/data_hw3/dataset2/ --type frames --minmatch 500`
+  <img src="docs/hw3-2.png"/>
+  - [Output result on YouTube](https://youtu.be/8_rakGqP_tU)

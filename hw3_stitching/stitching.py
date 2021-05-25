@@ -250,7 +250,7 @@ def _stitch_frames(direction="rtl"):
             matches = bf.match(dt, last_dt)
             print("{}, # of matches:{}".format(frame_num, len(matches)))
             if len(matches) < min_match:
-                print("Match point is less than minimum requirement (min_match).")
+                print(f"Match point is less than minimum requirement ({min_match}).")
                 continue
             matches = sorted(matches, key=lambda x: x.distance)
 

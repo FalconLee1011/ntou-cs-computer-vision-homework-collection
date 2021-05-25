@@ -23,7 +23,8 @@ def stitch(args):
     global min_match
     type_ = args.type
     source = args.source
-    min_match = int(args.minmatch) or 500
+    min_match = args.minmatch or 500
+    min_match = int(min_match)
     if type_ == "video":
         if os_path_isdir(source):
             print("Source is not a video.")
@@ -249,7 +250,7 @@ def _stitch_frames(direction="rtl"):
             matches = bf.match(dt, last_dt)
             print("{}, # of matches:{}".format(frame_num, len(matches)))
             if len(matches) < min_match:
-                print("Match point is less than minimum requirement (500).")
+                print("Match point is less than minimum requirement (min_match).")
                 continue
             matches = sorted(matches, key=lambda x: x.distance)
 

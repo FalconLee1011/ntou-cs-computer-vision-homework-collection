@@ -1,8 +1,11 @@
 from os import mkdir
 from time import time
 
-import tensorflow as tf
+import matplotlib
+matplotlib.use('tkagg')
 
+import matplotlib.pyplot as plt
+import tensorflow as tf
 from tensorflow.keras import Input as kerasInput, Model as kerasModel
 from tensorflow.keras import layers as kerasLayers
 from tensorflow.keras.models import load_model
@@ -110,7 +113,7 @@ class DensenetBlockModel:
         )
         print(f"Training of {self.__class__.__name__} is completed.")
 
-    def test(self, summary=False, model=None):
+    def test(self, summary=True, model=None):
         if model is not None:
             self.model = load_model(model)
         self.history["test"] = self.model.evaluate(self.test_generator)
@@ -122,7 +125,6 @@ class DensenetBlockModel:
         print("\n\n")
         print("-------- Test --------")
         print(f"Loss : {self.history['test'][0]} Accuracy : {self.history['test'][1]}")
-        import matplotlib.pyplot as plt
 
         plt.figure(figsize=(10, 5))
         plt.subplot(1, 2, 1)

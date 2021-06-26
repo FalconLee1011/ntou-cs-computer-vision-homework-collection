@@ -1,6 +1,10 @@
 from os import mkdir
 from time import time
 
+import matplotlib
+matplotlib.use('tkagg')
+
+import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.models import Sequential, load_model
@@ -91,7 +95,6 @@ class DensenetModel:
         print("\n\n")
         print("-------- Test --------")
         print(f"Loss : {self.history['test'][0]} Accuracy : {self.history['test'][1]}")
-        import matplotlib.pyplot as plt
 
         plt.figure(figsize=(10, 5))
         plt.subplot(1, 2, 1)

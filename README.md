@@ -14,6 +14,7 @@
   - pillow
   - tensorflow
   - pre-commit
+  - scipy
 
 ## Before anything
 - This repo is developed based on Python 3.9.1 on pipenv
@@ -78,3 +79,28 @@
 - `pipenv run stitch --source data/data_hw3/dataset2/ --type frames --minmatch 500`
   <img src="docs/hw3-2.png"/>
   - [Output result on YouTube](https://youtu.be/8_rakGqP_tU)
+
+---
+
+## HW4 - CNN Fruits Recognition
+### Overview
+- Create a fruits recognition model.
+
+### Dive into the code
+  - Entry `hw4_CNN/__main__.py`
+  - To run it, `pipenv run hw4 --mode < load | train > --model < DenseModel | DenseBlockModel > --modelpath <path-to-trained-model> --trainpath <path to training dataset> --testpath <path to testing dataset>`
+  - Arguments
+    - `--mode < load | train > `
+      - Specify the behave of the program, either load a trained model to test or train a new model.
+      - **Required**
+    - `--model < DenseModel | DenseBlockModel > `
+      - Select training mode.
+      - **Required**
+    - `--modelpath`
+      - If mode is 'load', use this to provide the path to the model.
+    - `--trainpath`
+      - Path to Datasets for training.
+      - **Required**
+    - `--testpath`
+      - Path to Datasets for tesging.
+      - **Required**

@@ -57,7 +57,7 @@ class DensenetBlockModel:
             class_mode="sparse",
         )
 
-    def Conv2D_BN(self, inputs, growth_rate):
+    def _Conv2D(self, inputs, growth_rate):
         nfilter = growth_rate * 4
         outputs = kerasLayers.Activation("relu")(inputs)
         outputs = kerasLayers.BatchNormalization()(outputs)
@@ -74,7 +74,7 @@ class DensenetBlockModel:
     def dense_block(self, inputs, growth_rate, n_filter, layers):
         concat = inputs
         for _ in range(layers):
-            outputs = self.Conv2D_BN(concat, growth_rate)
+            outputs = self._Conv2D(concat, growth_rate)
             concat = kerasLayers.concatenate([outputs, concat])
             n_filter += growth_rate
         return concat, n_filter

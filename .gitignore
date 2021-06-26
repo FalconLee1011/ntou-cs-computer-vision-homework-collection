@@ -12,3 +12,4 @@ config.yaml
 .DS_Store
 
 data*/
+cache/

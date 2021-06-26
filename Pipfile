@@ -9,9 +9,8 @@ numpy = "*"
 matplotlib = "*"
 pillow = "*"
 tensorflow = "*"
-black = "*"
-isort = "*"
 pre-commit = "*"
+scipy = "*"
 
 [dev-packages]
 
@@ -22,9 +21,9 @@ python_version = "3.9"
 format="pipenv run black ."
 hw1="pipenv run python -m hw1_filter"
 filter="pipenv run python -m hw1_filter"
-
 hw2="pipenv run python -m hw2_calibration"
 calibrate="pipenv run python -m hw2_calibration"
-
 hw3="pipenv run python -m hw3_stitching"
 stitch="pipenv run python -m hw3_stitching"
+hw4="pipenv run python -m hw4_CNN"
+cnn="pipenv run python -m hw4_CNN"
